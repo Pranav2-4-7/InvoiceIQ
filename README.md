@@ -138,6 +138,18 @@ invoiceiq/
 
 ---
 
+## 🗄️ Supabase Database Architecture
+
+The data layer is managed in **Supabase** via PostgreSQL. The core relations defined in [supabase_schema.sql](file:///c:/AntiGravity/invoiceiq/supabase_schema.sql) include:
+
+1. **`vendors`**: Stores vendor metadata, GSTINs, average transaction amounts, and invoice counts.
+2. **`invoices`**: Main invoice repository containing calculated taxes (CGST, SGST, IGST), totals, and parsed JSON line items.
+3. **`ledger`**: Comprehensive double-entry accounting records (debits, credits, balances) linked to invoices.
+4. **`fraud_alerts`**: Log of potential security violations flagged by the 4-layer ML engine.
+5. **`subscriptions`**: Dynamic storage of recurring software / resource subscriptions and billing cycles.
+
+---
+
 ## 🗺️ Roadmap
 
 - [x] **Phase 1**: Core platform & 10 Modules
